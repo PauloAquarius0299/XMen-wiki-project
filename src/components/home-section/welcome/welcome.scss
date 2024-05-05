@@ -1,0 +1,49 @@
+@use "../../../scss/" as *;
+
+.welcome {
+    background: url('../../../assets/images/bg-masion.jpg') center;
+    background-size: cover;
+
+    &-content {
+        @include flex(center, center);
+    }
+
+    &-info,
+    &-img {
+        width: 100vw; /* 50% da largura da viewport */
+        height: 100vh; /* 100% da altura da viewport */
+    }
+
+    &-info {
+        @include flex(flex-start, flex-end);
+
+        &-content {
+            padding-left: 15vw; 
+        }
+    }
+
+    &-img {
+        @include flex(flex-end, flex-start);
+
+        &-slide {
+            height: 700px; /* 80% da altura da viewport */
+            width: 100%; /* 50% da largura da viewport */
+            overflow: hidden;
+
+            canvas {
+                display: block;
+            }
+        }
+    }
+    @media screen and (max-width: 765px) {
+        &-info {
+            padding-left: 10px; 
+
+        }
+
+        &-img {
+            display: none;
+        }
+        
+    }
+}

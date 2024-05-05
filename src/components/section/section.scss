@@ -1,0 +1,28 @@
+@use "../../scss/" as *;
+
+.section {
+    width: 100vw; /* 100% da largura da viewport */
+    height: 100vh; /* 100% da altura da viewport */
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 1s ease;
+
+    &.active {
+        visibility: visible;
+    }
+
+    &.active &-content {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: 0.3s;
+    }
+
+    &-content {
+        position: relative;
+        height: 100%;
+        transform: scale(3);
+        opacity: 0;
+        transition: transform 0.6s ease, opacity 0.5s ease; /* Adicione a transição para a propriedade de opacidade */
+        padding-top: $header-height;
+    }
+}

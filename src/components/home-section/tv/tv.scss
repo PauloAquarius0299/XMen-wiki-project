@@ -1,0 +1,68 @@
+@use '../../../scss/' as *;
+
+
+.animations-container {
+    position: relative; 
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 100%; 
+        background-image: url('../../../assets/images/bg-genosha.jpg'); // 
+        background-size: cover; 
+        background-position: center; 
+        opacity: 0.9; 
+
+    .container-relative {
+        position: relative; 
+        z-index: 1; 
+        
+    }
+    .title {
+        position: absolute; 
+        top: 80px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        z-index: 2; 
+        color: $main-color;
+    }
+    .midia {
+        display: flex; 
+        justify-content: space-around; 
+        align-items: center; 
+        padding: 150px 0;
+        .card {
+            flex: 1; 
+            margin: 0 10px; 
+            
+
+            img {
+                width: 100%; 
+                height: auto; 
+                &:hover{
+                    border: 4px solid $second-color;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 765px) {
+        .title {
+            top: 50px; 
+            margin-top: 2rem;
+        }
+
+        .midia {
+            padding: 300px 0; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center;
+            display: flex;
+        }
+
+        .card {
+            width: 45%; 
+            height: 45%;
+            margin: 10px; 
+        }
+    }
+}

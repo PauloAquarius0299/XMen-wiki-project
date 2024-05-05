@@ -1,0 +1,81 @@
+@use '../../scss/' as *;
+
+.champion-detail{
+    position: fixed;
+    background-color: rgb(7, 7, 7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 102;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;visibility: 0.5s ease;
+
+    @include flex(flex-start, flex-end);
+
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+    &-content{
+        width: 60%;
+        padding: 1rem 0;
+        position: relative;
+        padding-right: -4rem;
+        .name{
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+        .story{
+            width: 50%;
+            padding-left: 1rem;
+            border-left: 2px solid $main-color;
+            margin: 1rem 0;
+
+        }
+        .video{
+            width: 60%;
+        }
+    }
+    &-close{
+        width: 50px;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+
+        &:hover{
+            transform: rotate(180deg);
+        }
+        img{
+            width: 100%;
+          
+        }
+    }
+    @media screen and (max-width: 765px) {
+        &-content {
+            width: 100%;
+            padding: 1rem;
+            .name {
+                font-size: 2rem;
+            }
+            .story {
+                width: 100%;
+                border-left: none;
+                padding-left: 0;
+                margin-top: 1rem;
+            }
+            .video {
+                display: none;
+            }
+        }
+
+        &-close {
+            width: 30px;
+            right: 10px;
+            top: 10px;
+        }
+    }
+}

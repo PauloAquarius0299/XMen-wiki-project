@@ -1,0 +1,74 @@
+@use '../../scss/' as *;
+
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    pointer-events: none;
+  
+    .menu-icon {
+      display: none; // Oculta o botão do menu em telas maiores
+    }
+  
+    &-inner {
+      // Seus estilos do conteúdo do cabeçalho
+      @include flex(center, space-between);
+      height: 100%;
+    }
+  
+    &-logo {
+      // Seus estilos do logo
+      width: 145px;
+      pointer-events: visible;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    &-nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+  
+      &.open {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        background-color: #333;
+        transition: transform 0.3s ease;
+        transform: translateX(0%);
+        z-index: 999;
+      }
+  
+      a {
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #555;
+        }
+      }
+    }
+  
+    @media screen and (max-width: 765px) {
+      .menu-icon {
+        display: block;
+      }
+  
+      .header-nav{
+        display: none;
+      }
+    }
+  }
+  
